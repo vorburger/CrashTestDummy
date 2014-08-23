@@ -3,6 +3,8 @@ CrashTestDummy
 
 Illustrates a JVM crash I've found (Swing on X11).
 
+http://blog2.vorburger.ch/2014/08/java-8-swing-related-jvm-crash-on-linux.html
+
 The problem can be worked around by launching with 
 -Dswing.systemlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel
 or
@@ -34,8 +36,7 @@ both of which are not in the picture in this case.  This makes me believe that
 this is a new regression in Java 8 (as it works, for me, using either
 OpenJDK 1.7.0_65 or Oracle Java 1.7.0_67 it's non-reproducible).
 
-Originally https://github.com/TechnicPack/TechnicLauncher/issues/464;
-similar issues found on bug trackers of other classic Swing/AWT apps.
+Originally https://github.com/TechnicPack/TechnicLauncher/issues/464.
 
 If just purely for my learning I'd like to understand, how does one go about debugging something like this? I haven't found much info on the web. How you you launch "java" "with the --sync command line option" ? Or would I need to add something (what?) somewhere in JDK source? While I'm much more familiar with Java (non-UI, actually..) than with C & native interface, I have managed to build my own JDK, see http://blog2.vorburger.ch/2014/06/build-your-own-jdk-at-home.html, so if it's a simple extra parameter to X11 initialization somewhere, I could possibly manage... Maybe I'll try to blog a tutorial and depending on complexity could try to contribute a fix to OpenJDK. -- If you've actually read up to here - maybe you can help? 
 
