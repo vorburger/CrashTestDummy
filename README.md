@@ -16,10 +16,17 @@ Repeatedly running CrashTestDummy (main) eventually causes:
        option to change this behavior. You can then get a meaningful
        backtrace from your debugger if you break on the gdk_x_error() function.)
 
-(at least some) Ubuntu Linux 14.04 (64-bit) at least.  The error doesn't consistently happen at every start-up, but "often enough" - could be some sort of timing issue?
+(at least on some) Ubuntu Linux 14.04 (64-bit).  
+
+The error doesn't consistently happen at every start-up, but "often enough" - could be some sort of timing issue?
 
 Its reproducible using on OpenJDK 1.8.0_11 & openjdk version "1.8.0-jdk8-b132"
 as well as Oracle Java 1.8.0_20-b26.  Based on Googling around, it likely already happened on earlier Java versions as well.
+
+The problem can be worked around by launching with 
+-Dswing.systemlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel
+or
+-Dswing.systemlaf=javax.swing.plaf.metal.MetalLookAndFeel
 
 Originally https://github.com/TechnicPack/TechnicLauncher/issues/464;
 similar issues found on bug trackers of other classic Swing/AWT apps.
